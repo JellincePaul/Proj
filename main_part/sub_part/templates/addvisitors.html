@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="page-header">
+          <h3 class="page-title">
+            Visitors
+          </h3>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="{% url 'prereg' %}">Pre-registr</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Add</li>
+            </ol>
+          </nav>
+        </div>
+  
+  <div class="col-md-12">
+ <form method="POST" class="post-form" action="/addvisitors/">  
+   {% csrf_token %}  
+   <div class="row">
+    <div class="form-group col-md-6">
+    <label for="First Name">First Name<sup style="color:red">*</sup></label>
+    {{ form.firstname }} 
+     </div>
+      <div class="form-group col-md-6">
+     <label for="Last Name*">Last Name<sup style="color:red">*</sup></label>
+     {{ form.lastname }} 
+    </div>
+    </div>
+   <div class="row">
+   <div class="form-group col-md-6">
+    <label for="Email">E-Mail Address<sup style="color:red">*</sup></label>
+    {{ form.email }} 
+    </div>
+    <div class="form-group col-md-6"> 
+    <label for="phone">Phone<sup style="color:red">*</sup></label>
+    {{ form.phone }} 
+      </div>
+    <div class="form-group col-md-6">
+    <label for="Gender">Gender<sup style="color:red">*</sup></label>
+    {{ form.gender }} 
+    </div>
+    <div class="form-group col-md-6">
+        <label for="Company Name">Company Name</label>
+        {{ form.companyname }} 
+      </div>
+      <div class="form-group col-md-6">
+        <label for="National Identification No">National Identification No</label>
+        {{ form.idnumber }} 
+      </div>
+      <div class="form-group col-md-6">
+        <label for="Select Employee">Select Employee<sup style="color:red">*</sup></label>
+        {{ form.emp }} 
+        </div>
+      <div class="form-group col-md-6">
+        <label for="Purpose" class="form-label">Purpose<sup style="color:red">*</sup></label>
+        <div class="row grid-margin">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                {{ form.purpose }} 
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="form-group col-md-6">
+        <label for="Address" class="form-label">Address</label>
+        <div class="row grid-margin">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                {{ form.address }} 
+              </div>
+            </div>
+          </div>
+        </div>
+       
+      </div>              
+       <p>Image</p>
+          <div class="input-group  col-md-6">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile02">
+             <label class="custom-file-label" for="Image" aria-describedby="inputGroupFileAddon02">Choose file</label>
+            </div>
+          </div>
+          <br>
+          <div class="input-container">
+            <i class="fa fa-user icon"></i>
+          </div>
+          <br>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>  
+ 
+    
+ </form>  
+</div> 
+</div>
+</div>
+
+
+{% endblock content %}

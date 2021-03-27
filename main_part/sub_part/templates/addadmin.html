@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title">
+        Administrators
+      </h3>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'admins' %}">Administrators</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Add</li>
+        </ol>
+      </nav>
+    </div>
+    <form method="POST" class="post-form" action="/addadmin/">
+      {% csrf_token %}
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="First Name">First Name<sup style="color:red">*</sup></label>
+          {{ none.firstname }}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="Last Name">Last Name<sup style="color:red">*</sup></label>
+          {{ none.lastname }}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="Email">E-Mail Address<sup style="color:red">*</sup></label>
+          {{ none.email }}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="phone">Phone number<sup style="color:red">*</sup></label>
+          {{ none.phone }}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="username">Username</label>
+          {{ none.username }}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="Password4">Password<sup style="color:red">*</sup></label>
+          {{ none.password }}
+        </div>
+
+        {% for error in field.errors %}
+        <p>{{ error }}</p>
+        {% endfor %}
+
+        <div class="row">
+          <p>Image</p>
+          <div class="input-group  col-md-6">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile02" required>
+              <label class="custom-file-label" for="Image" aria-describedby="inputGroupFileAddon02">Choose file</label>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="Address" class="form-label">Address</label>
+            <textarea class="form-control" name="address" id="Address" rows="4"></textarea>
+          </div>
+        </div>
+        <div class="input-container">
+          <i class="fa fa-user icon"></i>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+      </fdiv>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

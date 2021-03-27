@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="page-header">
+          <h3 class="page-title">
+            Pre-register
+          </h3>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="{% url 'prereg' %}">Pre-registr</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Add</li>
+            </ol>
+          </nav>
+        </div>
+
+  
+  <div class="col-md-12">
+ <form method="POST" class="post-form" action="/addprereg/">  
+   {% csrf_token %}  
+   <div class="row">
+    <div class="form-group col-md-6"> 
+    <label for="First Name">First Name<sup style="color:red">*</sup></label>
+    {{ form.firstname }} 
+     </div>
+      <div class="form-group col-md-6">
+     <label for="Last Name">Last Name<sup style="color:red">*</sup></label>
+     {{ form.lastname }} 
+    </div>
+   <div class="form-group col-md-6">
+    <label for="Email">E-Mail Address<sup style="color:red">*</sup></label>
+    {{ form.email }} 
+    </div>
+    <div class="form-group col-md-6"> 
+    <label for="phone">Phone number<sup style="color:red">*</sup></label>
+    {{ form.phone }} 
+    </div>
+    <div class="form-group col-md-6">
+    <label for="Gender">Gender<sup style="color:red">*</sup></label>
+    {{ form.gender }}
+    </div>
+      <div class="form-group col-md-6">
+        <label for="Employee Name">Select Employee<sup style="color:red">*</sup></label>
+        {{ form.emp }} 
+        </div>
+        <div class="form-group col-md-6"> 
+          <label for="Date">Expected Date<sup style="color:red">*</sup></label>
+          {{ form.date }} 
+          </div>
+          <div class="form-group col-md-6"> 
+            <label for="phone">Expected Time<sup style="color:red">*</sup></label>
+            {{ form.time }} 
+            </div>
+        <div class="form-group col-md-6">
+            <label for="Comment" class="form-label">Comment</label>
+            <div class="row grid-margin">
+              <div class="col-lg-12">
+                <div class="card">
+                  <div class="card-body">
+                    {{ form.comment }} 
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <div class="form-group col-md-6">
+            <label for="Address" class="form-label">Address</label>
+            <div class="row grid-margin">
+              <div class="col-lg-12">
+                <div class="card">
+                  <div class="card-body">
+                    {{ form.address }} 
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+          </div> 
+ 
+   <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <button type="submit" class="btn btn-primary">Submit</button>  
+    </div>  
+   </div>  
+ 
+  </div>  
+ </form>  
+</div> 
+</div>
+</div>
+
+
+{% endblock content %}
